@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "clangd" },
+				ensure_installed = { "lua_ls", "clangd", "tsserver" },
 			})
 		end,
 	},
@@ -25,6 +25,10 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.tsserver.setup({
+				capabilities = capabilities,
+			})
+
 			local configs = require("lspconfig.configs")
 
 			-- QML LSP
